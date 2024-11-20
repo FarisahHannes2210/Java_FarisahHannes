@@ -4,25 +4,29 @@
 import java.util.Scanner;
 
 public class SecondAssignment {
+    
 
+    private String car_model;
+    private double car_price; //private
+   
+    
 
-    public static void main(String[] args) {
-        
-        Scanner scanner = new Scanner(System.in);
+    private SecondAssignment(String car_model, double car_price)
+    {
+        this.car_model = car_model;
+        this.car_price = car_price;
+    }
 
-        String car_model;
-        double car_price;
+    public void showDetail()
+    {
+        System.out.println("Car model: " + car_model);
+        System.out.println("Car price: RM" + car_price);
+    }
+
+    public void defineInput()
+    {
         int sigma;
-        int num = 100000;
-       
-
-        System.out.print("Enter car model: ");
-        car_model = scanner.nextLine();
-
-        System.out.print("Enter car price: ");
-        car_price = scanner.nextDouble();
-
-        
+        double num = 100000;
 
         if(car_price > num)
         {
@@ -37,23 +41,44 @@ public class SecondAssignment {
         {
             sigma = 98;
         }
-        
-        System.out.println();
-        System.out.println("Car model: " + car_model);
-        System.out.println("Car price: RM" + car_price);
 
         switch (sigma) {
             case 0 -> {
                 
-                System.out.println("You are not a VIP");
+                System.out.println("This buyer is not a VIP.");
             }
             case 1 -> {
                 
-                System.out.println("You are a VIP!!");
+                System.out.println("This buyer is a VIP.");
             }
         
             default -> System.out.println("Invalid. Must be something wrong :(");
         }
 
+         
+        
+    }
+    
+
+    public static void main(String[] args) {
+        
+        String car_model;
+        double car_price;
+       
+        Scanner scanner = new Scanner(System.in); 
+        
+        System.out.print("Enter car model: ");
+        car_model = scanner.nextLine();
+
+        System.out.print("Enter car price: ");
+        car_price = scanner.nextDouble();
+
+        System.out.println();
+        SecondAssignment cv = new SecondAssignment(car_model, car_price);
+        cv.showDetail();
+        cv.defineInput();
+
+      
+        
     }
 }
